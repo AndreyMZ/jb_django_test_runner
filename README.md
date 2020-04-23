@@ -26,29 +26,45 @@ Not supported:
 
 ## Instruction
 
-1. Adjusting PyCharm internals:
+### 1. Adjust PyCharm internals
 
-    1.  Try to run test from the context menu. You will see somethin like:
+#### With the script (on Windows)
+
+Requirement: `patch`. Install it with [Chocolatey](https://chocolatey.org/):
+
+    choco install cyg-get
+    cyg-get patch
+
+Download or clone this repo and run [install.bat](scripts/install.bat) (as administrator), e.g.:
+
+    .\scripts\install.bat "C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2020.1"
     
-            Testing started at 16:15 ...
-            C:\Programs\Python38\python.exe "C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2019.3.2\plugins\python-ce\helpers\pycharm\_jb_unittest_runner.py" --target example.tests.test_foo.FooTestCase.test_bar
-            
-        Note the path to `_jb_unittest_runner.py`.
+To uninstall run [uninstall.bat](scripts/uninstall.bat) (as administrator), e.g:
 
-    2.  Apply patch [`_jb_unittest_runner.py.patch`](_jb_unittest_runner.py.patch) to `YOUR_PYCHARM_INSTALL_DIR/plugins/python-ce/helpers/pycharm/_jb_unittest_runner.py`
-    
-    3.  Copy [`_jb_django_test_runner.py`](_jb_django_test_runner.py) to `YOUR_PYCHARM_INSTALL_DIR/plugins/python-ce/helpers/pycharm/_jb_django_test_runner.py`.
-    
-2. Edit the run/debug configuration template:
+    .\scripts\uninstall.bat "C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2020.1"
 
-    1. Go to the menu *Run* > *Edit Configurations...*
-    2. Go to *Templates* > *Python tests* > *Unittests*
-    3. Set the *Working directory* to the root path of your project (where `manage.py` file is located)
-    4. In the *Environment variables* add a new one with *name* `DJANGO_TEST_MODE_GAINARIE` and any *value*
+#### Manually
 
-3. Remove all previously added run/debug configurations that inherit this template.
+1.  Try to run test from the context menu. You will see somethin like:
+
+        Testing started at 16:15 ...
+        C:\Programs\Python38\python.exe "C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2019.3.2\plugins\python-ce\helpers\pycharm\_jb_unittest_runner.py" --target example.tests.test_foo.FooTestCase.test_bar
+        
+    Note the path to `_jb_unittest_runner.py`.
+
+2.  Apply patch [`_jb_unittest_runner.py.patch`](_jb_unittest_runner.py.patch) to `YOUR_PYCHARM_INSTALL_DIR/plugins/python-ce/helpers/pycharm/_jb_unittest_runner.py`
+3.  Copy [`_jb_django_test_runner.py`](_jb_django_test_runner.py) to `YOUR_PYCHARM_INSTALL_DIR/plugins/python-ce/helpers/pycharm/_jb_django_test_runner.py`.
+
+### 2. Edit the run/debug configuration template
+
+1. Go to the menu *Run* > *Edit Configurations...*
+2. Go to *Templates* > *Python tests* > *Unittests*
+3. Set the *Working directory* to the root path of your project (where `manage.py` file is located)
+4. In the *Environment variables* add a new one with *name* `DJANGO_TEST_MODE_GAINARIE` and any *value*
+5. Remove all previously added run/debug configurations that inherit this template.
     
     When modifying a Template configuration, all previously added configurations that inherit it won't be updated, so they have to be manually removed. They will be automatically readded when tests run from the context menu.
+
 
 ## References
 
