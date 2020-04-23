@@ -2,13 +2,27 @@
 
 This is for PyCharm **Community** Edition which does not have any Django integration. PyCharm **Professional** Edition supports [Django Test](https://www.jetbrains.com/help/pycharm/run-debug-configuration-django-test.html) out of the box.
 
-## Supported PyCharm versions
+
+## Supported configurations
+
+### PyCharm versions
 
 Tested on:
-- 2019.3.2
+- 2020.1
 
 Not supported:
 - ≤ 2019.2.3
+
+### Python versions
+
+Tested on:
+- 3.7
+- 3.8
+
+Not supported:
+- 2.*
+- 3.*, ≤3.5
+
 
 ## Instruction
 
