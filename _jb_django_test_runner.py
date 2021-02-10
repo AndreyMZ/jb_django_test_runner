@@ -1,7 +1,6 @@
 # coding=utf-8
 import argparse
 import os
-import shlex
 import subprocess
 import sys
 from pathlib import Path
@@ -10,6 +9,7 @@ from pathlib import Path
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--target", type=str, required=True)
+    parser.add_argument('additional', metavar="ADDITIONAL_ARG", type=str, nargs='*')
     args = parser.parse_args()
 
     startupFilePath = Path(os.getenv("DJANGO_STARTUP_NAME", "manage.py")).absolute()
@@ -17,11 +17,8 @@ def main():
         print(f"Invalid startup file: {startupFilePath}")
         return
 
-    startupTestArgs = shlex.split(os.getenv("DJANGO_STARTUP_TEST_ARGS", ""))
-
-    djangoStartupArgs = [str(startupFilePath), "test", "--testrunner", "teamcity.django.TeamcityDjangoRunner"]
-    djangoStartupArgs.extend(startupTestArgs)
-    djangoStartupArgs.append(args.target)
+    djangoStartupArgs = [str(startupFilePath), "test", "--testrunner", "teamcity.django.TeamcityDjangoRunner",
+                         *args.additional, "--", args.target]
 
     additionalGlobalsStr = os.getenv("DJANGO_STARTUP_ADDITIONAL_GLOBALS")
     if additionalGlobalsStr is not None:
