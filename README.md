@@ -8,6 +8,7 @@ This is for PyCharm **Community** Edition which does not have any Django integra
 ### PyCharm versions
 
 Tested on:
+- 2020.3.3
 - 2020.1
 
 Not supported:
@@ -16,12 +17,12 @@ Not supported:
 ### Python versions
 
 Tested on:
-- 3.7
 - 3.8
+- 3.7
 
 Not supported:
-- 2.*
 - 3.*, ≤3.5
+- 2.*
 
 
 ## Instruction
@@ -45,10 +46,10 @@ To uninstall run [uninstall.bat](scripts/uninstall.bat) (as administrator), e.g:
 
 #### Manually
 
-1.  Try to run test from the context menu. You will see somethin like:
+1.  Try to run test from the context menu. You will see something like:
 
-        Testing started at 16:15 ...
         C:\Programs\Python38\python.exe "C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2019.3.2\plugins\python-ce\helpers\pycharm\_jb_unittest_runner.py" --target example.tests.test_foo.FooTestCase.test_bar
+        Testing started at 16:15 ...
         
     Note the path to `_jb_unittest_runner.py`.
 
