@@ -8,7 +8,7 @@ from pathlib import Path
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--target", "--path", type=str, required=True)
+    parser.add_argument("--target", "--path", type=str, required=True, action='append')
     parser.add_argument('additional', metavar="ADDITIONAL_ARG", type=str, nargs='*')
     args = parser.parse_args()
 
@@ -18,7 +18,7 @@ def main():
         return
 
     djangoStartupArgs = [str(startupFilePath), "test", "--testrunner", "teamcity.django.TeamcityDjangoRunner",
-                         *args.additional, "--", args.target]
+                         *args.additional, "--", *args.target]
 
     additionalGlobalsStr = os.getenv("DJANGO_STARTUP_ADDITIONAL_GLOBALS")
     if additionalGlobalsStr is not None:
