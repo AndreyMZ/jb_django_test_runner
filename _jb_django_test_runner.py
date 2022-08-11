@@ -8,7 +8,7 @@ from pathlib import Path
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--target", type=str, required=True)
+    parser.add_argument("--target", "--path", type=str, required=True)
     parser.add_argument('additional', metavar="ADDITIONAL_ARG", type=str, nargs='*')
     args = parser.parse_args()
 

@@ -8,6 +8,7 @@ This is for PyCharm **Community** Edition which does not have any Django integra
 ### PyCharm versions
 
 Tested on:
+- 2022.2
 - 2020.3.3
 - 2020.1
 
@@ -17,6 +18,7 @@ Not supported:
 ### Python versions
 
 Tested on:
+- 3.9
 - 3.8
 - 3.7
 
@@ -38,11 +40,11 @@ Requirement: `patch`. Install it with [Chocolatey](https://chocolatey.org/):
 
 Download or clone this repo and run [install.bat](scripts/install.bat) (as administrator), e.g.:
 
-    .\scripts\install.bat "C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2020.1"
+    .\scripts\install.bat "C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2022.2"
     
 To uninstall run [uninstall.bat](scripts/uninstall.bat) (as administrator), e.g:
 
-    .\scripts\uninstall.bat "C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2020.1"
+    .\scripts\uninstall.bat "C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2022.2"
 
 #### Manually
 
