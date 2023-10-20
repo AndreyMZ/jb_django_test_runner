@@ -17,8 +17,12 @@ def main():
         print(f"Invalid startup file: {startupFilePath}")
         return
 
-    djangoStartupArgs = [str(startupFilePath), "test", "--testrunner", "teamcity.django.TeamcityDjangoRunner",
-                         *args.additional, "--", *args.target]
+    djangoStartupArgs = [str(startupFilePath), "test", "--testrunner", "teamcity.django.TeamcityDjangoRunner"]
+    for arg_add in args.additional:
+        djangoStartupArgs.append(arg_add)
+    djangoStartupArgs.append("--")
+    for arg_targ in args.target:
+        djangoStartupArgs.append(arg_targ)
 
     additionalGlobalsStr = os.getenv("DJANGO_STARTUP_ADDITIONAL_GLOBALS")
     if additionalGlobalsStr is not None:
