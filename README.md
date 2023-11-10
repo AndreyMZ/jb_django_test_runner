@@ -32,7 +32,19 @@ Not supported:
 
 ### 1. Adjust PyCharm internals
 
-#### With the script (on Windows)
+#### With the script
+
+##### On Windows with WSL
+
+Download or clone this repo and run [install.sh](scripts/install.sh) (as administrator), e.g.:
+
+	wsl ./scripts/install.sh "/mnt/c/Program Files (x86)/JetBrains/PyCharm Community Edition 2023.2.3"
+	
+To uninstall run [uninstall.sh](scripts/uninstall.sh) (as administrator), e.g:
+
+    wsl ./scripts/uninstall.sh "/mnt/c/Program Files (x86)/JetBrains/PyCharm Community Edition 2023.2.3"
+
+##### On Windows
 
 Requirement: `patch`. Install it with [Chocolatey](https://chocolatey.org/):
 
@@ -41,11 +53,11 @@ Requirement: `patch`. Install it with [Chocolatey](https://chocolatey.org/):
 
 Download or clone this repo and run [install.bat](scripts/install.bat) (as administrator), e.g.:
 
-    .\scripts\install.bat "C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2022.2"
+    .\scripts\install.bat "C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2023.2.3"
     
 To uninstall run [uninstall.bat](scripts/uninstall.bat) (as administrator), e.g:
 
-    .\scripts\uninstall.bat "C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2022.2"
+    .\scripts\uninstall.bat "C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2023.2.3"
 
 #### Manually
 
